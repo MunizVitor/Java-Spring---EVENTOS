@@ -3,16 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <title>EventoApp</title>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css" media="screen,projection"/>
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body>
     <h1>Cadastro de eventos</h1>
-    <form method="post" action="">
+    <h3>
+    <a href="/eventos" class="waves-effect waves-light btn">
+        <i class="material-icons left">clear_all</i>
+        Lista de Eventos
+    </a>
+    </h3>
+    <form method="post" action="" class="container">
         Nome: <input type="text" value="" name="nome" placeholder="Insira o seu nome"/>
-        Local: <input type="text" value="" name="local" placeholder="Insira o seu local"/>
-        Data: <input type="date" value="" name="data" placeholder="Insira a data do evento"/>
-        Horario: <input type="time" value="" name="horario" placeholder="Insira o horario do evento"/>
-
-        <button type="submit">Salvar</button>
+        <div class="row">
+            <div class="input-field col s6">
+                Local: <input type="text" value="" name="local" placeholder="Insira o seu local"/>
+            </div>
+            <div class="input-field col s3">
+                Data: <input type="date" value="" name="data" placeholder="Insira a data do evento"/>
+            </div>
+            <div class="input-field col s3">
+                Horario: <input type="time" value="" name="horario" placeholder="Insira o horario do evento"/>
+            </div>
+        </div>
+        <button class="waves-effect waves-light btn" type="submit">Salvar</button>
     </form>
 </body>
 </html>
