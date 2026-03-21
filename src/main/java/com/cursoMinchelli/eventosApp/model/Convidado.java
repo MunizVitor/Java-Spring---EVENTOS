@@ -4,14 +4,17 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name = "convidado")
 public class Convidado {
 
     @Id
+    @NotEmpty
     private String rg;
 
+    @NotEmpty
     private String nomeconvidado;
 
     //muitos para um só

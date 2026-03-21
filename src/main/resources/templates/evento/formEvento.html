@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" xmlns:th="http://thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>EventoApp</title>
@@ -19,6 +19,9 @@
         Lista de Eventos
     </a>
     </h3>
+
+    <th:block th:include="mensagemValidacao"></th:block>
+
     <form method="post" action="" class="container">
         Nome: <input type="text" value="" name="nome" placeholder="Insira o seu nome"/>
         <div class="row">

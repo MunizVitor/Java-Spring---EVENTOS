@@ -28,6 +28,8 @@
         <p>Horário: <span th:text="${evento.horario}"></span></p>
     </div>
 
+    <th:block th:include="mensagemValidacao"></th:block>
+
     <form method="post">
         Nome: <input type="text" value="" name="nomeconvidado"/>
         Rg: <input type="text" value="" name="rg"/>
@@ -40,7 +42,7 @@
         <div class="input-field col s6">
             <p><span th:text="${convidado.nomeconvidado}"></span></p>
         </div>
-        <div class="input-field col s6">
+        <div class="input-field col s3">
             <p><span th:text="${convidado.rg}"></span></p>
         </div>
     </div>

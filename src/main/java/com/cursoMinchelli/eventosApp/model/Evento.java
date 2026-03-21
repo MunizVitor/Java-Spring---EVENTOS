@@ -1,6 +1,7 @@
 package com.cursoMinchelli.eventosApp.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
 
 import java.util.List;
 
@@ -14,9 +15,13 @@ public class Evento {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @NotEmpty
     private String nome;
+    @NotEmpty
     private String local;
+    @NotEmpty
     private String data;
+    @NotEmpty
     private String horario;
 
     @OneToMany//um evento para muitos convidados
