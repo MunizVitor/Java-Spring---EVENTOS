@@ -64,6 +64,13 @@ public class EventoController {
         return mv;
     }
 
+    @RequestMapping("/deletar")
+    public String deletarEvento(long id){
+        Evento evento = eventoRepository.findById(id).orElseThrow(() -> new RuntimeException("Evento não encontrado"));
+        eventoRepository.delete(evento);
+        return "redirect:/eventos";
+    }
+
     @RequestMapping(value="/{id}", method=RequestMethod.POST)
     public String detalhesEventoPost(@PathVariable("id") long id, @Valid Convidado convidado, BindingResult result, RedirectAttributes attributes){
         if(result.hasErrors()){

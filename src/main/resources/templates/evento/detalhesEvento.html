@@ -10,43 +10,57 @@
 
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <link rel="stylesheet" href="style/styleCss.css">
     <title>Detalhes de Eventos</title>
 </head>
 <body>
-
-<h1>Lista de Eventos</h1>
+<header>
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo">Lista de Eventos</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="/eventos" class="waves-effect waves-light btn">
+                    <i class="material-icons left">add</i>
+                    Lista de Evento</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
 
 <!-- Botão corrigido -->
-<h3><a href="/evento" class="waves-effect waves-light btn">
-    <i class="material-icons left">add</i>
-        Lista de Evento</a></h3>
-<div th:each="evento : ${evento}" class="container">
+<div th:each="evento : ${evento}" class="container detalhesEvento">
+    <h5>Detalhes do Evento</h5>
     <div class="row">
         <p>Nome: <span th:text="${evento.nome}"></span></p>
         <p>Local: <span th:text="${evento.local}"></span></p>
         <p>Data: <span th:text="${evento.data}"></span></p>
         <p>Horário: <span th:text="${evento.horario}"></span></p>
     </div>
+</div>
 
     <th:block th:include="mensagemValidacao"></th:block>
 
+<div class="container formConvidado">
     <form method="post">
         Nome: <input type="text" value="" name="nomeconvidado"/>
         Rg: <input type="text" value="" name="rg"/>
         <button class="waves-effect waves-light btn" type="submit">Adicionar</button>
     </form>
 </div>
-<h5>Lista de Convidados: </h5>
-<div class="container" th:each="convidado: ${convidados}">
-    <div class="row">
-        <div class="input-field col s6">
-            <p><span th:text="${convidado.nomeconvidado}"></span></p>
-        </div>
-        <div class="input-field col s3">
-            <p><span th:text="${convidado.rg}"></span></p>
-        </div>
-    </div>
-</div>
+
+<table class="container tabelaConvidado">
+    <thead>
+        <th>Nome Convidado</th>
+        <th>RG</th>
+    </thead>
+    <tbody>
+        <tr th:each="convidado : ${convidados}">
+            <td><span th:text="${convidado.nomeconvidado}"></span></td>
+            <td><span th:text="${convidado.rg}"></span></td>
+        </tr>
+    </tbody>
+</table>
 <!--JavaScript at end of body for optimized loading-->
 <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
 </body>
