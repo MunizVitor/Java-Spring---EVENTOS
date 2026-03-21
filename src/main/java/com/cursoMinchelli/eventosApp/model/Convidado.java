@@ -11,6 +11,7 @@ public class Convidado {
 
     @Id
     private String rg;
+
     private String nomeconvidado;
 
     //muitos para um só

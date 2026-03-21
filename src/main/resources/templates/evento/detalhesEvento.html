@@ -30,9 +30,20 @@
 
     <form method="post">
         Nome: <input type="text" value="" name="nomeconvidado"/>
-        Rg: <input type="text" value="" name="nomeconvidado"/>
+        Rg: <input type="text" value="" name="rg"/>
         <button class="waves-effect waves-light btn" type="submit">Adicionar</button>
     </form>
+</div>
+<h5>Lista de Convidados: </h5>
+<div class="container" th:each="convidado: ${convidados}">
+    <div class="row">
+        <div class="input-field col s6">
+            <p><span th:text="${convidado.nomeconvidado}"></span></p>
+        </div>
+        <div class="input-field col s6">
+            <p><span th:text="${convidado.rg}"></span></p>
+        </div>
+    </div>
 </div>
 <!--JavaScript at end of body for optimized loading-->
 <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
