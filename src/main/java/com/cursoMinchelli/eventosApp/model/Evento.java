@@ -2,6 +2,8 @@ package com.cursoMinchelli.eventosApp.model;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "evento")
 public class Evento {
@@ -16,6 +18,9 @@ public class Evento {
     private String local;
     private String data;
     private String horario;
+
+    @OneToMany//um evento para muitos convidados
+    private List<Convidado> convidadoList;
 
     public Evento(){    };//constructor vazio
 
