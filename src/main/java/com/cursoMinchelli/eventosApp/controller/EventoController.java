@@ -64,7 +64,7 @@ public class EventoController {
         return mv;
     }
 
-    @RequestMapping("/deletar")
+    @RequestMapping("/deletarEvento")
     public String deletarEvento(long id){
         Evento evento = eventoRepository.findById(id).orElseThrow(() -> new RuntimeException("Evento não encontrado"));
         eventoRepository.delete(evento);
@@ -82,5 +82,16 @@ public class EventoController {
         convidadoRepository.save(convidado);
         attributes.addFlashAttribute("mensagem", "Convidado Adicionado com Sucesso");
         return "redirect:/{id}";
+    }
+
+    @RequestMapping("/deletarConvidado")
+    public String deletarConvidado(String rg){
+        Convidado convidado = convidadoRepository.findById(rg).orElseThrow(() -> new RuntimeException("Convidado não encontrado"));;
+        convidadoRepository.delete(convidado);
+
+        Evento evento = convidado.getEvento();//podemos excluir o convidado, mas como saberemos o id do evento que o cliente estava para redirecionar a tela de evento que o cliente estava listado
+        long eventoId = evento.getId();//instanciando a classe Evento conseguimos chamar o evento e assim pegar o id do evento em que o cliente estava listado
+        String id = "" + eventoId;
+        return "redirect:/" + id;
     }
 }
